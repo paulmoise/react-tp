@@ -1,6 +1,6 @@
 // Sans utilisation de la librairie prop-types
 import './style.css'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 
 export default function CountComponent({initialValue = 0}){
@@ -45,38 +45,3 @@ export default function CountComponent({initialValue = 0}){
         </div>
     )
 }
-
-
-
-
-
-
-
-// Avec utilisation de la librairie prop-types
-
-/*
-
-import React from 'react'
-import PropTypes from 'prop-types'
-
-
-export default function FormComponent({buttonTitle}){
-
-    return (
-        <div>
-            <form noValidate autoComplete="off">
-                <label htmlFor="name">Name:</label>
-                <input id="name" />
-                <button>OK</button>
-            </form>
-        </div>
-    )
-}
-
-
-// on affecte le type du props 
-FormComponent.propTypes = {
-    buttonTitle: PropTypes.string
-}
-
-*/
