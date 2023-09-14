@@ -2,7 +2,7 @@
 
 ### 1- Add prop-types - optionnel
 
-        npm i prop-types
+        npm i prop-types // ce package permet de donner un type au props en react. Par défaut, Les props en react avec js ne sont pas typés. Et cette libraire permet de les typés.
 
 ### 2- Add eslint config
 
