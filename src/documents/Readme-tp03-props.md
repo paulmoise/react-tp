@@ -1,6 +1,6 @@
 ## Exo on Props
 
-### 1- Add prop-types - optionnel
+### 1- Add prop-types - optionnel (optionnel = tu peux l'installer si tu veux = pas obligatoire)
 
         npm i prop-types // ce package permet de donner un type au props en react. Par défaut, Les props en react avec js ne sont pas typés. Et cette libraire permet de les typés.
 
@@ -43,6 +43,6 @@ In package.json add a few lines to activate eslint
    1. add a log on the button handler to log that name value
    1. test
    1. add this JSX code to your JSX : <div>VALUE from Input Name : {name ? name : 'empty'}</div>
-   1. test it, does the name value change in HTML ?
+   1. test it, does the name value change in HTML ?  Answer the value change in the console but not change in the page.
 
 3. code a Class Component Migrate the code form FC to CC
