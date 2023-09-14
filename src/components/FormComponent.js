@@ -1,64 +1,41 @@
 // Sans utilisation de la librairie prop-types
 
-import React from 'react'
+import React, { useState } from 'react'
 
 
 export default function FormComponent({buttonTitle = "OK"}){
 
-    let name;
+    // itemName est state pour sauvegarder la saisie dans le champs par l'utilisateur
+    const [itemName, setItemName] = useState('')
+
+    // itemList est un state pour sauvegarder la liste de tous les noms ajoutés
+    const [itemList, setItemList] = useState([])
 
     function handleButtonClick(event) {
         event.preventDefault();
-        console.log("Hello Reack, I am Oumaima")
+        console.log(itemList)
+        setItemList( (prevState) => [...prevState, itemName] )
     }
 
     return (
         <div>
-            <form noValidate autoComplete="off">
-                <label htmlFor="name">Name:</label>
-                <input id="name" onChange={(event)=>{
-                    name = event.target.value
-                    console.log("Name value is = ", name)
+            <div>
+                <form noValidate autoComplete="off">
+                    <label htmlFor="name">Name:</label>
+                    <input id="name" onChange={(event) => {
+                        setItemName(event.target.value)
+                    }} />
+                    <button onClick={handleButtonClick}>{buttonTitle}</button>
+                </form>
+            </div>
+            <div style={{listStyle: "square"}}>
+                <h1> List of elements </h1>
+                <ul>
+                    {
+                        itemList?.map((item, index) => <li key={index}  style={{ listStyleType: "none" }}>  {item}  </li> ) 
                     }
-                } />
-                <button onClick={handleButtonClick}>{buttonTitle}</button>
-            </form>
-            <div>VALUE from Input Name : {name ? name : 'empty'}</div>
+                </ul>
+            </div>
         </div>
     )
 }
-
-
-
-
-
-
-
-// Avec utilisation de la librairie prop-types
-
-/*
-
-import React from 'react'
-import PropTypes from 'prop-types'
-
-
-export default function FormComponent({buttonTitle}){
-
-    return (
-        <div>
-            <form noValidate autoComplete="off">
-                <label htmlFor="name">Name:</label>
-                <input id="name" />
-                <button>OK</button>
-            </form>
-        </div>
-    )
-}
-
-
-// on affecte le type du props 
-FormComponent.propTypes = {
-    buttonTitle: PropTypes.string
-}
-
-*/
