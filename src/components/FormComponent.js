@@ -3,62 +3,40 @@
 import React from 'react'
 
 
-export default function FormComponent({buttonTitle = "OK"}){
+class FormComponent extends React.Component {
 
-    let name;
+    constructor(){
+        super();
 
-    function handleButtonClick(event) {
+        let name = ""
+    }
+
+    handleButtonClick(event) {
         event.preventDefault();
         console.log("Hello Reack, I am Oumaima")
     }
 
-    return (
-        <div>
-            <form noValidate autoComplete="off">
-                <label htmlFor="name">Name:</label>
-                <input id="name" onChange={(event)=>{
-                    name = event.target.value
-                    console.log("Name value is = ", name)
-                    }
-                } />
-                <button onClick={handleButtonClick}>{buttonTitle}</button>
-            </form>
-            <div>VALUE from Input Name : {name ? name : 'empty'}</div>
-        </div>
-    )
+    render(){
+        
+        // on déstructure le props qui est un objet javascript et on récupère les attributs notamment buttonTitle
+        const {buttonTitle} = this.props;
+
+
+        return (
+            <div>
+                <form noValidate autoComplete="off">
+                    <label htmlFor="name">Name:</label>
+                    <input id="name" onChange={(event)=>{
+                        this.name = event.target.value
+                        console.log("Name value is = ", this.name)
+                        }
+                    } />
+                    <button onClick={this.handleButtonClick}>{buttonTitle}</button>
+                </form>
+                <div>VALUE from Input Name : {this.name ? this.name : 'empty'}</div>
+            </div>
+        )
+    }
 }
 
-
-
-
-
-
-
-// Avec utilisation de la librairie prop-types
-
-/*
-
-import React from 'react'
-import PropTypes from 'prop-types'
-
-
-export default function FormComponent({buttonTitle}){
-
-    return (
-        <div>
-            <form noValidate autoComplete="off">
-                <label htmlFor="name">Name:</label>
-                <input id="name" />
-                <button>OK</button>
-            </form>
-        </div>
-    )
-}
-
-
-// on affecte le type du props 
-FormComponent.propTypes = {
-    buttonTitle: PropTypes.string
-}
-
-*/
+export default FormComponent;
