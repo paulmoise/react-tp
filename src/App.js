@@ -1,10 +1,10 @@
 import './App.css';
-import FormComponent from './components/FormComponent'
+import CountComponent from './components/CountComponent'
 
 function App() {
   return (
     <div className="App" style={{margin: "20px"}}>
-      <FormComponent buttonTitle='Envoyer'/>
+      <CountComponent initialValue={10}/>
     </div>
   );
 }
